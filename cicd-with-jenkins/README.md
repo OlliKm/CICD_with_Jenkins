@@ -12,6 +12,8 @@
 - [Stages of Jenkins](#stages-of-jenkins)
 - [What alternatives are there for Jenkins](#what-alternatives-are-there-for-jenkins)
 - [Why build a pipeline? Business value?](#why-build-a-pipeline-business-value)
+- [CICD Diagrams](#cicd-diagrams)
+    - [Pipelines](#pipelines)
 
 # What is CI? Benefits?
 **CI Stands for Continuous Integration**
@@ -25,7 +27,7 @@
   **Benefits:**
   * Helps you identify and resolve bugs.
     * Reduces Cost 💰
-  * Helps to main a stable and functional software build 
+  * Helps to main a stable and functional software build 🏗️
 
 # What is CD? Benefits?
 **CD Stands for either Continuous Delivery or Deployment** 
@@ -37,15 +39,15 @@
 ### **continuous delivery:**
 * ensures software is always in a deployable state, read/can be push production line any time. 
   * often involves producing a artifact
-  * requires a manual decision 👨‍💼👨
+  * **requires a manual decision** 👨‍💼
 * Benefits:
-* always have a deployable artifact ready to deploy to end users
+* always have a deployable artifact ready to deploy to end users 🟢
   
 ### **continuous deployment**
 * extends continuous delivery by automating the final step of automating to production
   * no manual intervention required 🤖
   * benefit which is also a disadvantage: 
-    * removes all human approval, relies entirely on automated processes.
+    * **removes all human approval**, relies entirely on automated processes.
 
 # What is Jenkins?
 * **==automation Server==** 
@@ -89,7 +91,35 @@ A typical Jenkins CICD pipeline involves the following stages:
 
 # Why build a pipeline? Business value?
 
-* Cost Effective - automating repetitive processes.
-* Faster time to market
-* reduced risk -  
-* 
+* Cost Effective - automating repetitive processes. 🟢
+* Faster time to market 🟢
+* reduced risk -  🟢
+  
+# CICD Diagrams 
+### Pipelines
+> CICD Pipelines progress
+* ![alt text](/images/cicdPipelin.png)
+* Once a git push has been processed the code then gets **tested** to check if theres anything wrong with it.
+* Once it passes testing it will then be **merged** from dev branch to main branch
+* When the merge is completed be sure to use the **Code that was tested and merged** when **deploying** rather that the lastest version to avoid any conflicts of others pushing code that doesn't work with yours
+> CICD Pipelines progress
+
+<br> 
+
+
+
+> CICD Jobs and how they work
+* ![alt text](</images/cicd jobs.png>)
+* typically when working with CICD, Jenkins automated servers are typically used to help push code.
+1. when the git push is initialised from the dev branch to the GitHub Repo 
+2. we then assign webhooks [Automated messages that get sent when specific events occur]()
+3. We then use Jenkins which is made up of the Master node(built in node) which uses Agent Nodes to run jobs
+4. in order to do so ==Jenkins needs the private Github key== so it can merge and update repo.  as well as ==Jenkins needing the EC2 private key== to SSH into the EC2 
+<br>
+**Jobs work like**
+  * Job 1. is the test code (Dev Branch)
+   **If Successful**
+  * Job 2. Merges code from dev branch to main branch
+   **If Successful**
+  * The Code gets Deployed to the EC2
+> CICD Jobs  and how they work
