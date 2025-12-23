@@ -56,3 +56,4 @@ I also made sure in the configure "source code management " section I added to t
 
 # Jenkins app deploy
 
+* still trying to get this working as it doesn't work yet
