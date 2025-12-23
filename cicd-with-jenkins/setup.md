@@ -56,4 +56,23 @@ I also made sure in the configure "source code management " section I added to t
 
 # Jenkins app deploy
 
-* still trying to get this working as it doesn't work yet
+1. On jenkins make a job that clones the step 2 and name it under the pretext of deployment.
+2. tick the option in the build environment for **SSH AGENT** and click ==Add==
+3. Make a new new ssh key and for the aws .pem file you have copying the file name and the private key.
+4. once created select it as the ssh credential in the drop down list.
+5. you then want to go down to the build steps and add a **Execute shell** this is where we will be adding the code so jenkins can ssh into the instance and scp the app code.
+6. for this we will be using the code below:
+```
+rsync -av --delete -e "ssh -o StrictHostKeyChecking=no" \
+  ./ ubuntu@54.229.71.203:/home/ubuntu/app/
+
+ssh -o StrictHostKeyChecking=no ubuntu@54.229.71.203 << 'EOF'
+  cd /home/ubuntu/app/app
+  npm install
+  pm2 restart all || pm2 start app.js
+EOF
+```
+* this will ssh into the instance ignoring the host key checking to save time and input, we then specify where we are wanting to go which is the inside the app folder in the app instance we use the public ip of the instance to ssh in.
+<br>
+
+* we then are inside the VM where we are cd into the apps app and running npm install and then starting the app through pm2
