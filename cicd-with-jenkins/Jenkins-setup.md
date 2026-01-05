@@ -46,22 +46,23 @@
 ---- 
 * Setting up the configuration
 1. click into the configurations and scroll down till you see the tick box setting for linking a github project  to the job
---
-1. you then want to input the link to your github repo and remove '.git' at the end of it.
---
 
-1. inside your job configuration settings scroll down to the bottom to the source code management area
---
-1. click git and then you want to paste the SSH URL you get from your github repo (make sure this is SSH not HTTPS)
---
+2. you then want to input the link to your github repo and remove '.git' at the end of it.
+
+
+2. inside your job configuration settings scroll down to the bottom to the source code management area
+
+3. click git and then you want to paste the SSH URL you get from your github repo (make sure this is SSH not HTTPS)
+
 <br>
+
 #### Setting up your key in GitHub
 
 1. on your github repo click setting and then on the left hand side should be a option bar
 2. select deploy keys - we then want to be click **Add deploy key** which will ask for a title and key.
 3. for the title we want to paste the file name of the key and then paste the actual key itself into the Key section
 #### Setting up credentials to link github with jenkins
-1.  in the credentials option in settings clikc add credential ""add jenkins" 
+1.  in the credentials option in settings clikc add credential "add jenkins"
 2.  we want to select the type to be the **ssh username with private key**
 3.  Once completed set the username to the key's name we made earlier "name"-2-github-key 
 4.  add a  description: to explain what it does
