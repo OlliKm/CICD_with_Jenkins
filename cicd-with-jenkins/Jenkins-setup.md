@@ -30,7 +30,7 @@
 ----
 # Jenkins setup 
 
-* ![alt text](/images/jenkinshomepage.png)
+ ![alt text](/images/jenkinshomepage.png)
 
 ### Jenkins Job 1 - Setup app 
 
@@ -41,7 +41,7 @@
 4. click freestyle project 
 5. click ok
 
-* ![alt text](/images/jenkins-make.png)
+ ![alt text](/images/jenkins-make.png)
 
 ---- 
 * Setting up the configuration
@@ -84,7 +84,7 @@ npm test
 2. save the job build
 
 ## How Webhooks work
-* ![alt text](/images/webhook.png)
+ ![alt text](/images/webhook.png)
 **What is a Webhook?**
 * A webhook is a an automated message sent from one app to another when a specific event triggers. 
 **How did I use them?**
@@ -141,4 +141,4 @@ EOF
 * we then are inside the VM where we are cd into the apps app and running npm install and then starting the app through pm2
 
 #### If you havent read about the basics of CICD Pipelines yet I advise you click the link
-[Link to CICD Pipelines Learning](/cicd-with-jenkins/README.md)
+[Link to CICD Pipelines Learning](/README.md)
